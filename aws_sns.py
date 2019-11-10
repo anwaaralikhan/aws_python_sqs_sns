@@ -4,28 +4,23 @@ TOPIC_NAME = 'MySubscriptionTopic'
 TOPIC_ARN = 'TOPIC_ARN'
 QUEUE_ARN = 'SQS_QUEUE_ARN'
 
-
 def sns_client():
     sns = boto3.client('sns', region_name='eu-west-1')
     """ :type : pyboto3.sns """
     return sns
-
 
 def create_topic():
     sns_client().create_topic(
         Name=TOPIC_NAME
     )
 
-
 def get_topics():
     return sns_client().list_topics()
-
 
 def get_topic_attributes(topic_arn):
     return sns_client().get_topic_attributes(
         TopicArn=topic_arn
     )
-
 
 def update_topic_attributes(topic_arn):
     return sns_client().set_topic_attributes(
@@ -33,7 +28,6 @@ def update_topic_attributes(topic_arn):
         AttributeName='DisplayName',
         AttributeValue=TOPIC_NAME + '-UPDATED'
     )
-
 
 def delete_topic(topic_arn):
     return sns_client().delete_topic(
