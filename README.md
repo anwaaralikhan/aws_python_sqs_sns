@@ -1,1 +1,2 @@
-# aws_python_sqs_sns
+# AWS Python SQS SNS implementation
+# SQS python aws
