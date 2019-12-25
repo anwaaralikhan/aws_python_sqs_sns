@@ -1,24 +1,20 @@
 import boto3
 import json
 
-
 QUEUE_NAME = 'MyTest-SQS-Queue'
 FIFO_QUEUE_NAME = 'MyTestQueue.fifo'
 QUEUE_FOR_DEAD_LETTER = 'Dead-Letter-Queue-For-Main'
 DEAD_LETTER_MAIN_QUEUE = 'Main-Queue'
-
 
 def sqs_client():
     sqs = boto3.client('sqs', region_name='eu-west-1')
     """ :type : pyboto3.sqs """
     return sqs
 
-
 def create_sqs_queue():
     return sqs_client().create_queue(
         QueueName=QUEUE_NAME
     )
-
 
 def create_fifo_queue():
     return sqs_client().create_queue(
@@ -28,12 +24,10 @@ def create_fifo_queue():
         }
     )
 
-
 def create_queue_for_dead_letter():
     return sqs_client().create_queue(
         QueueName=QUEUE_FOR_DEAD_LETTER
     )
-
 
 def create_dead_letter_queue():
     redrive_policy = {
@@ -52,23 +46,19 @@ def create_dead_letter_queue():
         }
     )
 
-
 def find_queue():
     return sqs_client().list_queues(
         QueueNamePrefix='MyTest'
     )
 
-
 def list_queues():
     return sqs_client().list_queues()
-
 
 def queue_attributes():
     return sqs_client().get_queue_attributes(
         QueueUrl='MAIN_QUEUE_URL',
         AttributeNames=['All']
     )
-
 
 def update_queue_attributes():
     return sqs_client().set_queue_attributes(
@@ -78,7 +68,6 @@ def update_queue_attributes():
             "VisibilityTimeout": "15"
         }
     )
-
 
 def delete_queue():
     return sqs_client().delete_queue(
