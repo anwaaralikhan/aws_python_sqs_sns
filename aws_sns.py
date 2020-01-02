@@ -66,7 +66,8 @@ def get_topic_subscriptions(topic_arn):
 
 
 def list_all_subscriptions():
-    return sns_client().list_subscriptions()
+    return sns_client()
+                .list_subscriptions()
 
 
 def check_if_phone_number_opted_out(phone_number):
