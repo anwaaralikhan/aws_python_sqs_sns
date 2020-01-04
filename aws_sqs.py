@@ -1,7 +1,7 @@
 import boto3
 import json
 
-QUEUE_NAME = 'MyTest-SQS-Queue'
+QUEUE_NAME =  'MyTest-SQS-Queue'
 FIFO_QUEUE_NAME = 'MyTestQueue.fifo'
 QUEUE_FOR_DEAD_LETTER = 'Dead-Letter-Queue-For-Main'
 DEAD_LETTER_MAIN_QUEUE = 'Main-Queue'
