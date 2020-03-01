@@ -4,6 +4,7 @@ TOPIC_NAME = 'MySubscriptionTopic'
 TOPIC_ARN = 'TOPIC_ARN'
 QUEUE_ARN = 'SQS_QUEUE_ARN'
 
+
 def sns_client():
     sns = boto3.client('sns', region_name='eu-west-1')
     """ :type : pyboto3.sns """
